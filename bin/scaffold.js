@@ -59,6 +59,7 @@ function done({ name, pkgm }) {
   const cd      = brightCyan(`cd ${name}`)
   const install = brightCyan(`${pkgm} install`)
   const dev     = brightCyan(`${pkgm} dev`)
+  const test    = brightCyan(`${pkgm} test`)
   const build   = brightCyan(`${pkgm} build`)
 
   quit(`
@@ -72,6 +73,10 @@ Now you need to:
 To run the development server:
 
   ${prompt} ${dev}
+
+To run the tests:
+
+  ${prompt} ${test}
 
 To build the module:
 

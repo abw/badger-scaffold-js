@@ -10,7 +10,7 @@ describe(
       'renders hello world',
       () => {
         render(<Hello/>)
-        screen.debug()
+        // screen.debug()
         expect(screen.getByText(/Hello/)).toHaveTextContent('Hello World!')
       }
     )
@@ -18,7 +18,7 @@ describe(
       'renders name',
       () => {
         render(<Hello name="Badger Fans"/>)
-        screen.debug()
+        // screen.debug()
         expect(screen.getByText(/Hello/)).toHaveTextContent('Hello Badger Fans!')
       }
     )
