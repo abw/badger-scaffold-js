@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { appStatus, quit } from '@abw/badger'
-import { fail, splitHash } from '@abw/badger-utils'
+import { appStatus, quit, green, brightCyan, darkGrey } from '@abw/badger'
+import { fail  } from '@abw/badger-utils'
 import { bin, cwd } from '@abw/badger-filesystem'
 import configure from '../lib/Configure.js'
 import scaffold from '../lib/Scaffold.js'
@@ -27,6 +27,8 @@ const app = appStatus(
       data,
       options: data.flags
     })
+
+    done(data)
   }
 )
 
@@ -50,6 +52,31 @@ Options:
 
 function version() {
   quit(`Version ${pkg.version}`)
+}
+
+function done({ name, pkgm }) {
+  const prompt  = darkGrey('$')
+  const cd      = brightCyan(`cd ${name}`);
+  const install = brightCyan(`${pkgm} install`);
+  const dev     = brightCyan(`${pkgm} dev`);
+  const build   = brightCyan(`${pkgm} build`);
+
+  quit(`
+${green('✔︎ All done!')}
+
+Now you need to:
+
+  ${prompt} ${cd}
+  ${prompt} ${install}
+
+To run the development server:
+
+  ${prompt} ${dev}
+
+To build the module:
+
+  ${prompt} ${build}
+`)
 }
 
 app()
