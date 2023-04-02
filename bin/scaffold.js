@@ -5,20 +5,20 @@ import { bin, cwd } from '@abw/badger-filesystem'
 import configure from '../lib/Configure.js'
 import scaffold from '../lib/Scaffold.js'
 
-const root = bin(import.meta.url).up();
+const root = bin(import.meta.url).up()
 const pkg  = await root.file('package.json', { codec: 'json' }).read()
-const scaffolds = root.dir('scaffolds');
+const scaffolds = root.dir('scaffolds')
 
 const app = appStatus(
   async () => {
-    const data = await configure({ scaffolds, help, version });
+    const data = await configure({ scaffolds, help, version })
     // console.log('configuration: ', data);
-    const dest   = cwd().dir(data.name);
-    const exists = await dest.exists();
+    const dest   = cwd().dir(data.name)
+    const exists = await dest.exists()
     if (exists) {
-      fail(`${dest} already exists - please move it out of the way`);
+      fail(`${dest} already exists - please move it out of the way`)
     }
-    const scafdir = data.scaffold;
+    const scafdir = data.scaffold
 
     await scaffold({
       src: scafdir.dir('src'),
@@ -56,10 +56,10 @@ function version() {
 
 function done({ name, pkgm }) {
   const prompt  = darkGrey('$')
-  const cd      = brightCyan(`cd ${name}`);
-  const install = brightCyan(`${pkgm} install`);
-  const dev     = brightCyan(`${pkgm} dev`);
-  const build   = brightCyan(`${pkgm} build`);
+  const cd      = brightCyan(`cd ${name}`)
+  const install = brightCyan(`${pkgm} install`)
+  const dev     = brightCyan(`${pkgm} dev`)
+  const build   = brightCyan(`${pkgm} build`)
 
   quit(`
 ${green('✔︎ All done!')}

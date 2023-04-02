@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "lint": "eslint 'src/**/*' 'bin/**/*.js' 'lib/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +16,7 @@
     "@abw/badger-filesystem": "^1.0.2",
     "@abw/badger-timestamp": "^1.0.4",
     "@abw/badger-utils": "^1.0.19",
+    "eslint": "^8.37.0",
     "nunjucks": "^3.2.3"
   }
 }
