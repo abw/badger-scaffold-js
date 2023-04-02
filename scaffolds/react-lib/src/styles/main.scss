@@ -1,0 +1,20 @@
+@import "config/all.scss";
+@import "components/all.scss";
+
+html {
+  font-family: $font-sans;
+}
+
+h1 {
+  color: $blue;
+}
+
+.app {
+  max-width: 80ch;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+img.logo {
+  width: 200px;
+}
