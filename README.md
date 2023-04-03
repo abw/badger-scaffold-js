@@ -236,6 +236,81 @@ $ cd ~/path/to/somewhere/else
 $ scaffold
 ```
 
+## Creating Your Own Scaffolding
+
+The `-t` / `--template` option can be specified as an absolute or relative
+path to point to your own scaffolding directory.
+
+```bash
+## absolute path
+$ bin/scaffold.js -t /path/to/my/scaffold my-new-module
+
+## relative path
+$ bin/scaffold.js -t ../path/to/my/scaffold my-new-module
+```
+
+Within that directory there should be a `src` directory containing
+[nunjucks](https://mozilla.github.io/nunjucks/) templates
+for all the files that should be generated in the new project.
+
+The templates should contain variable expansion tags like `{{var}}` to
+insert the relevant values.
+
+For example, the `README.md` file might contain a line like this:
+
+```
+This is the README for {{name}} by {{author}}.
+```
+
+The variables provided are:
+
+|Variable|Example|Description|
+|-|-|-|
+|author|Andy Wardley|Author name|
+|licence|ISC|Module licence|
+|npmOrg|@abw|NPM organisation|
+|githubId|abw|Github user id|
+|manager|pnpm|Preferred package manager|
+|template|./path/to/my/scaffold|Path to selected scaffold templates|
+|name|my-new-module|Name for new module|
+|dist|@abw/my-new-module|Full distribution name (npmOrg + name)|
+
+Any other variables specified in the configuration file provided by the
+`-c` or `--config` option will also be defined.
+
+In addition each template receives a `template` variable which contains:
+
+|Variable|Example|Description|
+|-|-|-|
+|template.source|scaffold/react-lib/src/package.json|Path to source template|
+|template.output|/home/abw/my-new-module/package.json|Full path to output file|
+|template.generated|2023-04-02 15:12:42|Timestamp when file was generated|
+
+You can define any additional template partials in the `lib` directory under
+your scaffold directory.  These can be inserted into any other template
+using the `include` directive.  For example, if you have a `lib/metadata`
+scaffolding file then you can include it as:
+
+```
+{% include "metadata" %}
+```
+
+Note that the file permissions of source templates are copied to generated
+files.  For example, if you have a `bin/foo.js` source template then you can
+set its permission to be `755` to make it executable.  Then the generated
+`bin/foo.js` script will also be executable.
+
+## TODO
+
+Planned for a future version:
+
+* Adding a `config/setup.yaml` to a scaffold directory which will be used to
+prompt the user to provide further values
+
+* Making the scaffolding modular and allowing multiple scaffold templates to
+be specified, e.g. having one base scaffolding for NPM modules, and others to
+customise for a React library, add tests, web site source, etc.
+
 ## Author
 
 Andy Wardley, March 2023
