@@ -24,3 +24,42 @@ You can then import the modules and start using them.
 ```jsx
 import { Hello } from '{{dist}}'
 ```
+
+## Notes for Maintainers
+
+Check out the repository.
+
+```bash
+$ git clone https://github.com/{{githubId}}/{{name}}.git
+$ cd {{name}}
+```
+
+Install the dependencies.
+
+```bash
+$ {{manager}} install
+```
+
+To run the development server:
+
+```bash
+$ {{manager}} dev
+```
+
+To run the tests:
+
+```bash
+$ {{manager}} test
+```
+
+To build for production:
+
+```bash
+$ {{manager}} build
+```
+
+To build the documentation for production:
+
+```bash
+$ {{manager}} build:docs
+```
