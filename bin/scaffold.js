@@ -18,12 +18,7 @@ const defaults = {
 
 const app = appStatus(
   async () => {
-    const data = await configure({ scaffolds, help, version, defaults })
-
-    if (data.flags.debug) {
-      console.log('data:', data)
-    }
-
+    const data   = await configure({ scaffolds, help, version, defaults })
     const dest   = cwd().dir(data.name)
     const exists = await dest.exists()
     if (exists) {
@@ -58,10 +53,10 @@ ${usage}:
 ${options}:
   -c <file> / --config <file>   Configuration file (.json or .yaml)
   -t <dir>  / --template <dir>  Template directory (in scaffolds)
-  -d        / --debug           Debugging mode
+  -y        / --yes             Accept all defaults
   -p        / --progress        Show progress
   -v        / --verbose         Verbose mode
-  -y        / --yes             Accept all defaults
+  -d        / --debug           Debugging mode
   -h        / --help            This help
   -V        / --version         Print version number
 
