@@ -18,7 +18,7 @@ const Home = () =>
           <code className="code">{{name}}</code> is a React library...
         </p>
         <p>
-          This site was scaffolded by
+          This site was scaffolded by{' '}
           <a href="https://github.com/abw/badger-scaffold-js">badger-scaffold-js</a>.
         </p>
       </div>
