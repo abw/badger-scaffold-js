@@ -18,3 +18,28 @@ h4 {
   line-height: 1.4;
   font-weight: bold;
 }
+p {
+  margin: 1rem 0;
+}
+p.intro {
+  font-size: 1.4em;
+}
+p.subintro {
+  font-size: 1.25em;
+}
+ul.menu {
+  padding: 1rem;
+  list-style: disc;
+}
+li {
+  margin-bottom: 1rem;
+}
+a {
+  font-weight: 500;
+  color: $brand-color;
+  text-decoration: inherit;
+  &:hover {
+    color: $brand-darkish;
+  }
+}
+

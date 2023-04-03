@@ -4,17 +4,145 @@
 html {
   font-family: $font-sans;
 }
-
-h1 {
-  color: $blue;
+body {
+  background-color: mix($brand-color, $white, 15%)
 }
-
-.app {
-  max-width: 80ch;
-  margin: 1rem auto;
+#layout {
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  aside {
+    flex-basis: 20rem;
+    flex-grow: 1;
+    margin-right: 1rem;
+    padding: 1rem;
+    border: 1px solid hsl($brand-hue, 20%, 90%);
+    background-color: rgba(#fff, 0.6);
+    display: flex;
+    flex-direction: column;
+    footer {
+      margin-top: auto;
+      font-size: 0.8rem;
+      color: $brand-light;
+      display: flex;
+      justify-content: space-between;
+    }
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    ul.menu {
+      padding: 0;
+      margin: 0 0 2rem 0;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 0;
+        a {
+          display: block;
+          background-color: rgba(#fff, 0.6);
+          padding: 0.25rem 0.5rem;
+          margin-bottom: 0.25rem;
+          &:hover {
+            background-color: rgba(#fff, 0.8);
+          }
+          &.active {
+            background-color: rgba(#fff, 1);
+          }
+        }
+      }
+    }
+  }
+  main {
+    position: relative;
+    flex-basis: 0;
+    flex-grow: 999;
+    padding: 2rem;
+    padding-bottom: 200px;
+    background-color: rgba(#fff, 0.9);
+    border: 1px solid hsl($brand-hue, 20%, 90%);
+    h1:first-child {
+      line-height: 1;
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+.pic-side {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 3rem;
+  img {
+    margin-top: 1rem;
+  }
+  & > div.blurb {
+    padding-right: 2rem;
+  }
+}
+.badger {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  padding-top: 2rem;
   text-align: center;
+  img {
+    width: 80px;
+  }
+  .caption {
+    padding: 0.5rem 0 0 0;
+    color: $brand-light;
+    font-size: 0.8rem;
+  }
 }
-
+code.code {
+  background-color: hsl($brand-hue, 30%, 95%);
+  border: 1px solid hsl($brand-hue, 40%, 90%);
+  color: hsl($brand-hue, 90%, 30%);
+  padding: 0 3px;
+  border-radius: 2px;
+}
 img.logo {
   width: 200px;
+}
+div.example {
+  h4 {
+    font-size: 0.8rem;
+    margin: 0;
+    text-align: right;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+  }
+  .explanation {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .code {
+    position: relative;
+  }
+  .output {
+    position: relative;
+    background-color: hsl($brand-hue, 40%, 20%);
+    color: hsl($brand-hue, 10%, 90%);
+    padding: 1rem 2rem;
+    font-size: 1.2em;
+  }
+}
+a.read-on {
+  display: block;
+  text-align: right;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+a.github {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
 }

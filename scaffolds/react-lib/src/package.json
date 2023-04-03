@@ -1,7 +1,7 @@
 {
   "name": "{{dist}}",
-  "private": true,
   "version": "0.0.1",
+  "description": "A description for {{name}}",
   "type": "module",
   "files": [
     "dist"
@@ -14,17 +14,31 @@
       "require": "./dist/{{name}}.umd.cjs"
     }
   },
+  "author": "{{author}}",
+  "licence": "{{licence}}",
+  "keywords": [
+    "react"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
+    "build:docs": "vite build --outDir docs --config vite.docs.config.js",
+    "preview": "vite preview --outDir docs --config vite.docs.config.js",
     "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{githubId}}/{{name}}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/{{githubId}}/{{name}}/issues"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@abw/badger-timestamp": "^1.0.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.28",
@@ -33,6 +47,8 @@
     "eslint": "^8.37.0",
     "eslint-plugin-react": "^7.32.2",
     "jsdom": "^21.1.1",
+    "react-router-dom": "^6.10.0",
+    "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.60.0",
     "vite": "^4.2.0",
     "vitest": "^0.29.8"
