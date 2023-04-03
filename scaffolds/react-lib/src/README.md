@@ -22,5 +22,5 @@ $ pnpm add {{dist}}
 You can then import the modules and start using them.
 
 ```jsx
-import { Theme, Themed } from '@abw/react-one-louder'
+import { Hello } from '{{dist}}'
 ```

@@ -170,7 +170,7 @@ $ bin/scaffold.js -c ~/path/to/me.yaml
 ### -t / --template
 
 The `-t` or `--template` option allows you to specify the template you want
-to use.  These are under the `scaffold` directory.  At present there is just
+to use.  These are under the `scaffolds` directory.  At present there is just
 one, `react-lib`.  If you don't specify this option then you will be prompted
 to confirm it.
 
