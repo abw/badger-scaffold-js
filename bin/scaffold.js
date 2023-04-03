@@ -9,8 +9,9 @@ const root = bin(import.meta.url).up()
 const pkg  = await root.file('package.json', { codec: 'json' }).read()
 const scaffolds = root.dir('scaffolds')
 const defaults = {
+  // this is for me - use the -c / --config option to define your settings
   author:   'Andy Wardley',
-  licence:  'MIT',
+  licence:  'ISC',
   npmOrg:   '@abw',
   githubId: 'abw',
   manager:  'pnpm'

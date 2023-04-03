@@ -1,16 +1,27 @@
 {
-  "name": "scaffold",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "badger-scaffold-js",
+  "version": "1.0.1",
+  "description": "A tool for scaffolding new projects",
   "type": "module",
+  "main": "bin/scaffold.js",
+  "author": "Andy Wardley",
+  "licence": "ISC",
+  "keywords": [
+    "scaffold",
+    "setup",
+    "builder"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abw/badger-scaffold-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abw/badger-scaffold-js/issues"
+  },
   "scripts": {
     "lint": "eslint 'src/**/*' 'bin/**/*.js' 'lib/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@abw/badger": "^1.1.10",
     "@abw/badger-filesystem": "^1.0.2",
