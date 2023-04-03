@@ -265,7 +265,7 @@ This is the README for {{name}} by {{author}}.
 The variables provided are:
 
 |Variable|Example|Description|
-|-|-|-|
+|:-|:-|:-|
 |author|Andy Wardley|Author name|
 |licence|ISC|Module licence|
 |npmOrg|@abw|NPM organisation|
@@ -281,7 +281,7 @@ Any other variables specified in the configuration file provided by the
 In addition each template receives a `template` variable which contains:
 
 |Variable|Example|Description|
-|-|-|-|
+|:-|:-|:-|
 |template.source|scaffold/react-lib/src/package.json|Path to source template|
 |template.output|/home/abw/my-new-module/package.json|Full path to output file|
 |template.generated|2023-04-02 15:12:42|Timestamp when file was generated|
