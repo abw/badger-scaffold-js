@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { appStatus, quit, green, brightCyan, darkGrey } from '@abw/badger'
+import { appStatus, quit, green, brightCyan, darkGrey, brightWhite } from '@abw/badger'
 import { fail  } from '@abw/badger-utils'
 import { bin, cwd } from '@abw/badger-filesystem'
 import configure from '../lib/Configure.js'
@@ -8,11 +8,22 @@ import scaffold from '../lib/Scaffold.js'
 const root = bin(import.meta.url).up()
 const pkg  = await root.file('package.json', { codec: 'json' }).read()
 const scaffolds = root.dir('scaffolds')
+const defaults = {
+  author:   'Andy Wardley',
+  licence:  'MIT',
+  npmOrg:   '@abw',
+  githubId: 'abw',
+  manager:  'pnpm'
+}
 
 const app = appStatus(
   async () => {
-    const data = await configure({ scaffolds, help, version })
-    // console.log('configuration: ', data);
+    const data = await configure({ scaffolds, help, version, defaults })
+
+    if (data.flags.debug) {
+      console.log('data:', data)
+    }
+
     const dest   = cwd().dir(data.name)
     const exists = await dest.exists()
     if (exists) {
@@ -33,19 +44,33 @@ const app = appStatus(
 )
 
 function help() {
-  quit(`scaffold.js
+  const name     = brightWhite('scaffold.js')
+  const usage    = brightWhite('Usage')
+  const options  = brightWhite('Options')
+  const examples = brightWhite('Examples')
+  quit(`${name}
 
-Scaffold a new project.
+  Scaffold a new project.
 
-Usage:
-  scaffold.js [options] template module
+${usage}:
+  scaffold.js [options] module
 
-Options:
-  -v / --verbose      Verbose mode
-  -p / --progress     Show progress
-  -d / --debug        Debugging mode
-  -h / --help         This help
-  -V / --version      Print version number
+${options}:
+  -c <file> / --config <file>   Configuration file (.json or .yaml)
+  -t <dir>  / --template <dir>  Template directory (in scaffolds)
+  -d        / --debug           Debugging mode
+  -p        / --progress        Show progress
+  -v        / --verbose         Verbose mode
+  -y        / --yes             Accept all defaults
+  -h        / --help            This help
+  -V        / --version         Print version number
+
+${examples}
+  scaffold.js
+  scaffold.js my-module-name
+  scaffold.js -c mydata.json my-module-name
+  scaffold.js -y -c mydata.json my-module-name
+  scaffold.js -y -t react-lib -c mydata.json my-module-name
 `
   )
 }
@@ -54,13 +79,14 @@ function version() {
   quit(`Version ${pkg.version}`)
 }
 
-function done({ name, pkgm }) {
+function done({ name, manager }) {
   const prompt  = darkGrey('$')
   const cd      = brightCyan(`cd ${name}`)
-  const install = brightCyan(`${pkgm} install`)
-  const dev     = brightCyan(`${pkgm} dev`)
-  const test    = brightCyan(`${pkgm} test`)
-  const build   = brightCyan(`${pkgm} build`)
+  const install = brightCyan(`${manager} install`)
+  const dev     = brightCyan(`${manager} dev`)
+  const test    = brightCyan(`${manager} test`)
+  const build   = brightCyan(`${manager} build`)
+  const docs    = brightCyan(`${manager} build:docs`)
 
   quit(`
 ${green('✔︎ All done!')}
@@ -81,6 +107,10 @@ To run the tests:
 To build the module:
 
   ${prompt} ${build}
+
+To build the documentation:
+
+  ${prompt} ${docs}
 `)
 }
 
