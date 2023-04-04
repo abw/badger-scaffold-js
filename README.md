@@ -83,6 +83,13 @@ $ cd ~/my-projects
 $ ~/path/to/scaffold-js/bin/scaffold.js
 ```
 
+Or you can use the `-o` / `--output` option to specify the directory you want
+to create.
+
+```bash
+$ bin/scaffold.js -o /path/to/my-new-module
+```
+
 You can create an [alias](#creating-an-alias) to the script to simplify this
 process.
 
@@ -275,7 +282,7 @@ $ scaffold
 ## Creating Your Own Scaffolding
 
 The `-t` / `--template` option can be specified as an absolute or relative
-path to point to your own scaffolding directory.
+path to point to your own scaffold directory.
 
 ```bash
 ## absolute path
@@ -335,6 +342,23 @@ Note that the file permissions of source templates are copied to generated
 files.  For example, if you have a `bin/foo.js` source template then you can
 set its permission to be `755` to make it executable.  Then the generated
 `bin/foo.js` script will also be executable.
+
+You can create a library of different scaffold templates and use the
+`-s` / `--scaffold` option to point to it.
+
+This should contain a `src` directory containing one or more scaffold
+templates as described above.
+
+You can also define `lib` directory of shared template partials that other
+templates can include.
+
+The final option is to create a `config/vars.yaml` or `config/vars.json`
+file where you put default variables that will be added to any scaffolding
+process.  This is an ideal place to put your personal details so that you
+don't need to use the [-c / --config](#c----config) option each time
+
+See the [scaffold](scaffold) directory for an example of how this should be
+laid out.
 
 ## TODO
 
