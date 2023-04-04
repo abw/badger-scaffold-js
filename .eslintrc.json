@@ -15,9 +15,9 @@
   "plugins": [
   ],
   "ignorePatterns": [
-    "scaffold/lib/**",
-    "scaffold/src/*/src/*.json",
-    "scaffold/src/*/lib/**/*.json"
+    "scaffold/lib/**/*.{js,json}",
+    "scaffold/src/*/src/**/*.{js,json}",
+    "scaffold/src/*/lib/**/*.{js,json}"
   ],
   "rules": {
     "indent": [
