@@ -14,7 +14,11 @@
   },
   "plugins": [
   ],
-  "ignorePatterns": ["scaffold/**/src", "scaffold/**/lib"],
+  "ignorePatterns": [
+    "scaffold/lib/**",
+    "scaffold/src/*/src/*.json",
+    "scaffold/src/*/lib/**/*.json"
+  ],
   "rules": {
     "indent": [
       "error",

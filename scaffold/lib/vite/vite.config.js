@@ -16,21 +16,21 @@ export default defineConfig({
     minify: true,
     sourcemap: false,
     lib: {
-      entry: 'lib/index.jsx',
+      entry: "{{entry}}",
       name: '{{dist}}',
       fileName: '{{name}}',
     },
     rollupOptions: {
       external: [
-        'react',
-        'react-dom',
-        'react/jsx-runtime'
+{%- for module, symbol in external %}
+        "{{module}}"{{',' if not loop.last }}
+{%- endfor %}
       ],
       output: {
         globals: {
-          'react': 'react',
-          'react-dom': 'ReactDOM',
-          'react/jsx-runtime': 'react/jsx-runtime',
+{%- for module, symbol in external %}
+          "{{module}}": "{{symbol}}"{{',' if not loop.last }}
+{%- endfor %}
         },
       },
     },

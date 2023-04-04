@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import configure from '../lib/Configure.js'
-import scaffold from '../lib/Scaffold.js'
+import { configure, scaffold }from '../lib/index.js'
 import { bin } from '@abw/badger-filesystem'
 import { appStatus, quit, green, brightCyan, darkGrey, brightWhite } from '@abw/badger'
 
@@ -54,14 +53,16 @@ function version() {
   quit(`Version ${pkg.version}`)
 }
 
-function done({ name, manager }) {
+function done({ name, manager, scripts }) {
   const prompt  = darkGrey('$')
   const cd      = brightCyan(`cd ${name}`)
   const install = brightCyan(`${manager} install`)
-  const dev     = brightCyan(`${manager} dev`)
-  const test    = brightCyan(`${manager} test`)
-  const build   = brightCyan(`${manager} build`)
-  const docs    = brightCyan(`${manager} build:docs`)
+  const cmds    = Object.entries(scripts).map(
+    ([script, {about}]) => {
+      const cmd = brightCyan(`${manager} ${script}`)
+      return `\n${about}\n\n  ${prompt} ${cmd}\n`
+    }
+  ).join('')
 
   quit(`
 ${green('✔︎ All done!')}
@@ -70,22 +71,7 @@ Now you need to:
 
   ${prompt} ${cd}
   ${prompt} ${install}
-
-To run the development server:
-
-  ${prompt} ${dev}
-
-To run the tests:
-
-  ${prompt} ${test}
-
-To build the module:
-
-  ${prompt} ${build}
-
-To build the documentation:
-
-  ${prompt} ${docs}
+${cmds}
 `)
 }
 

@@ -5,30 +5,13 @@ which resolves to itself.
 Instead the `src/package.json` should `{% include "common/package.json" %}`
 to break the loop.
 
-A better solution will be to have an additional configuration file for each
-scaffold template indicating which files they want to include from different
-library sets, e.g. in `scaffold/src/react-lib/config/files.yaml`:
+The better solution is to add a `config/files.(yaml|json)` which defines
+the files that you want to copy from the `scaffold/lib` directory.
 
-```yaml
-common:
-  - package.json
-react:
-  - another.json
-```
-
-(thinking out loud...)
-
-Although that probably needs to be map giving the source file and target
-output file:
-
-```yaml
-"common/package.json": "package.json"
-"react/another.json":  "another.json"
-"vite/vite.config.js": "vite.config.js"
-```
-
-Maybe also ability to include entire directories:
-
-```yaml
-"web/src": "src"
+```json
+{
+  "common/package.json": "package.json",
+  "public/badger.svg":  "public/badger.svg",
+  "vite/vite.config.js": "vite.config.js"
+}
 ```
