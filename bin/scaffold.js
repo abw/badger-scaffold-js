@@ -12,15 +12,6 @@ const app = appStatus(
     const config = await configure({ root, help, version })
     await scaffold(config)
     done(config)
-
-    //await scaffold({
-    //  src: scafdir.dir('src'),
-    //  lib: scafdir.dir('lib'),
-    //  dest,
-    //  data,
-    //  options: data.flags
-    //})
-
   }
 )
 

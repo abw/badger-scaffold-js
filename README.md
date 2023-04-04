@@ -1,4 +1,4 @@
-# badger-scaffold-js
+# scaffold-js
 
 This is a scaffolding tool for creating a new Javascript module.
 
@@ -22,13 +22,13 @@ may find things have been set up for my own situation and preferences.
 Clone the repository:
 
 ```bash
-$ git clone https://github.com/abw/badger-scaffold-js.git
+$ git clone https://github.com/abw/scaffold-js.git
 ```
 
 Install the dependencies
 
 ```bash
-$ cd badger-scaffold-js
+$ cd scaffold-js
 $ pnpm install
 ```
 
@@ -41,16 +41,16 @@ required values.
 
 ```
 $ bin/scaffold.js
-✔ What is your module name? … my-badger-module
+✔ What is your module name? … my-module
 ✔ What template do you want to use? › react-lib
-✔ What is the NPM distribution name? … @abw/my-badger-module
+✔ What is the NPM distribution name? … @abw/my-module
 ✔ What package manager do you want to use? › pnpm
 
 ✔︎ All done!
 
 Now you need to:
 
-  $ cd my-badger-module
+  $ cd my-module
   $ pnpm install
 
 To run the development server:
@@ -74,13 +74,13 @@ Note that it writes output to a directory under the current working directory.
 If the directory already exists then it will print an error and exit without
 proceeding any further.
 
-You probably don't want to create a new project under the `badger-scaffold-js`
+You probably don't want to create a new project under the `scaffold-js`
 directory so you should run it from wherever you want to create the new
 project.
 
 ```bash
 $ cd ~/my-projects
-$ ~/path/to/badger-scaffold-js/bin/scaffold.js
+$ ~/path/to/scaffold-js/bin/scaffold.js
 ```
 
 You can create an [alias](#creating-an-alias) to the script to simplify this
@@ -112,12 +112,15 @@ Usage:
 
 Options:
   -c <file> / --config <file>   Configuration file (.json or .yaml)
-  -t <dir>  / --template <dir>  Template directory (in scaffolds)
+  -s <dir>  / --scaffold <dir>  Scaffold directory
+  -t <dir>  / --template <dir>  Template directory (in scaffold dir)
+  -o <dir>  / --output <dir>    Output directory
+  -d        / --dryrun          Dry run - don't create any files
   -y        / --yes             Accept all defaults
   -p        / --progress        Show progress
   -v        / --verbose         Verbose mode
-  -d        / --debug           Debugging mode
   -h        / --help            This help
+  -D        / --debug           Debugging mode
   -V        / --version         Print version number
 
 Examples
@@ -167,15 +170,48 @@ or `--config` option.
 $ bin/scaffold.js -c ~/path/to/me.yaml
 ```
 
+### -s / --scaffold
+
+The `-s` or `--scaffold` option allows you to specify the path to your own
+set of scaffold templates.  The default is to use the `../scaffold` directory
+relative to the `bin/scaffold.js` script.
+
+```bash
+$ bin/scaffold.js -s /path/to/my/scaffold my-new-module
+```
+
+See [Creating Your Own Scaffolding](#creating-your-own-scaffolding) for
+further information.
+
 ### -t / --template
 
 The `-t` or `--template` option allows you to specify the template you want
-to use.  These are under the `scaffolds` directory.  At present there is just
-one, `react-lib`.  If you don't specify this option then you will be prompted
-to confirm it.
+to use.  These are under the `scaffold/src` directory.  At present there is
+just one, `react-lib`.  If you don't specify this option then you will be
+prompted to confirm it.
 
 ```bash
 $ bin/scaffold.js -t react-lib my-new-module
+```
+
+### -o / --output
+
+The `-o` or `--output` option can be used to specify the output directory
+for the new module.  The default is a directory matching the module name
+you specify under the current working directory.
+
+```bash
+$ bin/scaffold.js -o /path/to/my-new-module my-new-module
+```
+
+### -d / --dryrun
+
+This option can be used to perform a dry run.  No output files will be
+created but a summary of what would have happened will be printed to the
+screen.
+
+```bash
+$ bin/scaffold.js -d my-new-module
 ```
 
 ### -y / --yes
@@ -199,9 +235,9 @@ project this might be useful.
 The `-v` or `--verbose` option can be used to display additional information
 about what it's doing.
 
-### -d / --debug
+### -D / --debug
 
-The `-d` or `--debug` option can be used to display additional debugging
+The `-D` or `--debug` option can be used to display additional debugging
 information.
 
 ### -V / --version
@@ -218,7 +254,7 @@ For example, add something like this to your `~/.aliases` file (or wherever
 you define your aliases).
 
 ```bash
-alias scaffold="~/path/to/badger-scaffold-js/bin/scaffold.js -c ~/path/to/me.yaml"
+alias scaffold="~/path/to/scaffold-js/bin/scaffold.js -c ~/path/to/me.yaml"
 ```
 
 Don't forget to reload your aliases or they won't take effect until you open
