@@ -1,6 +1,6 @@
 {
-  "name": "badger-scaffold-js",
-  "version": "1.0.1",
+  "name": "@abw/scaffold-js",
+  "version": "1.0.2",
   "description": "A tool for scaffolding new projects",
   "type": "module",
   "main": "bin/scaffold.js",
@@ -13,13 +13,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abw/badger-scaffold-js.git"
+    "url": "git+https://github.com/abw/scaffold-js.git"
   },
   "bugs": {
-    "url": "https://github.com/abw/badger-scaffold-js/issues"
+    "url": "https://github.com/abw/scaffold-js/issues"
   },
   "scripts": {
-    "lint": "eslint 'src/**/*' 'bin/**/*.js' 'lib/**/*.js",
+    "lint": "eslint 'bin/**/*.js' 'lib/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
