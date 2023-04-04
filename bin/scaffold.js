@@ -3,8 +3,10 @@ import { configure, scaffold }from '../lib/index.js'
 import { bin } from '@abw/badger-filesystem'
 import { appStatus, quit, green, brightCyan, darkGrey, brightWhite } from '@abw/badger'
 
+// rollup rewrites this to be ../package.json
+const PACKAGE_JSON = 'package.json'
 const root = bin(import.meta.url).up()
-const pkg  = await root.file('package.json', { codec: 'json' }).read()
+const pkg  = await root.file(PACKAGE_JSON, { codec: 'json' }).read()
 
 const app = appStatus(
   async () => {

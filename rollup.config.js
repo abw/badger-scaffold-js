@@ -42,7 +42,9 @@ export default [
             src: 'bin/*',
             dest: 'dist/bin',
             transform: (contents, filename) =>
-              contents.toString().replace('../lib/index.js', '@abw/scaffold')
+              contents.toString()
+                .replace('../lib/index.js', '@abw/scaffold')
+                .replace("'package.json'", "'../package.json'")
           },
         ],
       }),
