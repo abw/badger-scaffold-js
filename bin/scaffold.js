@@ -1,41 +1,26 @@
 #!/usr/bin/env node
-import { appStatus, quit, green, brightCyan, darkGrey, brightWhite } from '@abw/badger'
-import { fail  } from '@abw/badger-utils'
-import { bin, cwd } from '@abw/badger-filesystem'
 import configure from '../lib/Configure.js'
 import scaffold from '../lib/Scaffold.js'
+import { bin } from '@abw/badger-filesystem'
+import { appStatus, quit, green, brightCyan, darkGrey, brightWhite } from '@abw/badger'
 
 const root = bin(import.meta.url).up()
 const pkg  = await root.file('package.json', { codec: 'json' }).read()
-const scaffolds = root.dir('scaffolds')
-const defaults = {
-  // this is for me - use the -c / --config option to define your settings
-  author:   'Andy Wardley',
-  licence:  'ISC',
-  npmOrg:   '@abw',
-  githubId: 'abw',
-  manager:  'pnpm'
-}
 
 const app = appStatus(
   async () => {
-    const data   = await configure({ scaffolds, help, version, defaults })
-    const dest   = cwd().dir(data.name)
-    const exists = await dest.exists()
-    if (exists) {
-      fail(`${dest} already exists - please move it out of the way`)
-    }
-    const scafdir = data.scaffold
+    const config = await configure({ root, help, version })
+    await scaffold(config)
+    done(config)
 
-    await scaffold({
-      src: scafdir.dir('src'),
-      lib: scafdir.dir('lib'),
-      dest,
-      data,
-      options: data.flags
-    })
+    //await scaffold({
+    //  src: scafdir.dir('src'),
+    //  lib: scafdir.dir('lib'),
+    //  dest,
+    //  data,
+    //  options: data.flags
+    //})
 
-    done(data)
   }
 )
 
@@ -53,12 +38,15 @@ ${usage}:
 
 ${options}:
   -c <file> / --config <file>   Configuration file (.json or .yaml)
-  -t <dir>  / --template <dir>  Template directory (in scaffolds)
+  -s <dir>  / --scaffold <dir>  Scaffold directory
+  -t <dir>  / --template <dir>  Template directory (in scaffold dir)
+  -o <dir>  / --output <dir>    Output directory
+  -d        / --dryrun          Dry run - don't create any files
   -y        / --yes             Accept all defaults
   -p        / --progress        Show progress
   -v        / --verbose         Verbose mode
-  -d        / --debug           Debugging mode
   -h        / --help            This help
+  -D        / --debug           Debugging mode
   -V        / --version         Print version number
 
 ${examples}
