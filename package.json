@@ -1,6 +1,6 @@
 {
   "name": "@abw/scaffold",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A tool for scaffolding new projects",
   "type": "module",
   "files": [
