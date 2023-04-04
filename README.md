@@ -343,6 +343,9 @@ files.  For example, if you have a `bin/foo.js` source template then you can
 set its permission to be `755` to make it executable.  Then the generated
 `bin/foo.js` script will also be executable.
 
+You can also create a `config/vars.yaml` or `config/vars.json` file to define
+any additional variables that should be defined when using this template.
+
 You can create a library of different scaffold templates and use the
 `-s` / `--scaffold` option to point to it.
 
@@ -355,7 +358,7 @@ templates can include.
 The final option is to create a `config/vars.yaml` or `config/vars.json`
 file where you put default variables that will be added to any scaffolding
 process.  This is an ideal place to put your personal details so that you
-don't need to use the [-c / --config](#c----config) option each time
+don't need to use the `-c` / `--config` option each time
 
 See the [scaffold](scaffold) directory for an example of how this should be
 laid out.
