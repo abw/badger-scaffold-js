@@ -17,9 +17,28 @@ Note that it was written as a tool for me to use, rather than a general
 purpose tool for other people to use.  You're welcome to use it, but you
 may find things have been set up for my own situation and preferences.
 
-## Getting Started
+## Running With npx
 
-Clone the repository:
+You can run the scaffold script using `npx`.
+
+```bash
+$ npx @abw/scaffold
+```
+
+Add the `-h` or `--help` option for help.
+
+```bash
+$ npx @abw/scaffold -h
+```
+
+Read on for further details about the options available.
+
+## Installing a Local Copy
+
+You can install a local copy of the module if you want it to run slightly
+faster, or as a reference if you want to write your own scaffolding templates.
+
+Start by cloning the git repository:
 
 ```bash
 $ git clone https://github.com/abw/scaffold-js.git
@@ -33,6 +52,10 @@ $ pnpm install
 ```
 
 ## Scaffolding a New Project
+
+NOTE: In these examples we'll assume you've installed a local copy and
+are running the script as `bin/scaffold.js`.  But you substitute that for
+`npx @abw/scaffold` if you want to run it using `npx`.
 
 Run the `bin/scaffold.js` script to scaffold a new project.
 
