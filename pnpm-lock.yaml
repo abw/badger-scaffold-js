@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@abw/badger': ^1.1.10
+  '@abw/badger': ^1.1.11
   '@abw/badger-filesystem': ^1.0.2
   '@abw/badger-timestamp': ^1.0.4
   '@abw/badger-utils': ^1.0.19
@@ -13,7 +13,7 @@ specifiers:
   rollup-plugin-copy: ^3.4.0
 
 dependencies:
-  '@abw/badger': 1.1.10
+  '@abw/badger': 1.1.11
   '@abw/badger-filesystem': 1.0.2
   '@abw/badger-timestamp': 1.0.4
   '@abw/badger-utils': 1.0.19
@@ -52,8 +52,8 @@ packages:
     resolution: {integrity: sha512-rwkfAbhyS4M17Bwu/3tSiSW3kxR2n/43xUc2F6tfmwwd0BZ2NsP457GYHUYdhsxBXTyDc3YNIE18+HnG/Hl5/g==}
     dev: false
 
-  /@abw/badger/1.1.10:
-    resolution: {integrity: sha512-BU5gKWPG+K9HT4xa0jMzvXPlbP18AZvte2c4yQUEY2q6CvwdEU0Yn4/KyOxKfGuTcvlYgwa3rBdw2hIXMkwDiQ==}
+  /@abw/badger/1.1.11:
+    resolution: {integrity: sha512-GGWg7eoNyYX63TDKrk0wziORGHEsPRgP+9wEQHm2pM6z1e3oEk5x8EpTo+91/EmJuqv1Z2keyu1e7qC5FZTGxg==}
     dependencies:
       '@abw/badger-codecs': 1.0.2
       '@abw/badger-filesystem': 1.0.2

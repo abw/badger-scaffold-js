@@ -37,7 +37,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@abw/badger": "^1.1.10",
+    "@abw/badger": "^1.1.11",
     "@abw/badger-filesystem": "^1.0.2",
     "@abw/badger-timestamp": "^1.0.4",
     "@abw/badger-utils": "^1.0.19",
