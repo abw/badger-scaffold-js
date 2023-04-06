@@ -1,0 +1,38 @@
+$red-hue:     0   !default;
+$brown-hue:   20  !default;
+$orange-hue:  30  !default;
+$yellow-hue:  50  !default;
+$olive-hue:   68  !default;
+$green-hue:   100 !default;
+$teal-hue:    160 !default;
+$blue-hue:    200 !default;
+$navy-hue:    220 !default;
+$indigo-hue:  240 !default;
+$violet-hue:  275 !default;
+$magenta-hue: 315 !default;
+$pink-hue:    330 !default;
+
+$black:   #000 !default;
+$red:     hsl($red-hue, 100%, 40%) !default;
+$brown:   hsl($brown-hue, 50%, 40%) !default;
+$orange:  hsl($orange-hue, 100%, 45%) !default;
+$yellow:  hsl($yellow-hue, 100%, 47%) !default;
+$olive:   hsl($olive-hue, 75%, 45%) !default;
+$green:   hsl($green-hue, 70%, 40%) !default;
+$teal:    hsl($teal-hue, 60%, 45%) !default;
+$blue:    hsl($blue-hue, 80%, 45%) !default;
+$navy:    hsl($navy-hue, 70%, 40%) !default;
+$indigo:  hsl($indigo-hue, 50%, 50%) !default;
+$violet:  hsl($violet-hue, 50%, 50%) !default;
+$magenta: hsl($magenta-hue, 50%, 45%) !default;
+$pink:    hsl($pink-hue, 60%, 50%) !default;
+$white:   #fff !default;
+
+$brand-hue:       $brown-hue !default;
+$brand-color:     $brown !default;
+$brand-darkish:   darken($brand-color, 10%) !default;
+$brand-dark:      darken($brand-color, 20%) !default;
+$brand-darker:    darken($brand-color, 30%) !default;
+$brand-lightish:  lighten($brand-color, 10%) !default;
+$brand-light:     lighten($brand-color, 20%) !default;
+$brand-lighter:   lighten($brand-color, 30%) !default;
