@@ -55,7 +55,7 @@ function version() {
   quit(`Version ${pkg.version}`)
 }
 
-function done({ name, manager, scripts }) {
+function done({ name, manager, scripts={} }) {
   const prompt  = darkGrey('$')
   const cd      = brightCyan(`cd ${name}`)
   const install = brightCyan(`${manager} install`)
