@@ -1,7 +1,7 @@
 # website
 
-This is the README for website.  It was created using
-[badger-scaffold-js](https://github.com/abw/badger-scaffold-js).
+This is the README for the `scaffold-js` documentation website.  It was created
+using [badger-scaffold-js](https://github.com/abw/badger-scaffold-js).
 
 ## Notes for Maintainers
 

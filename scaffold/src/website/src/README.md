@@ -1,7 +1,7 @@
 # {{name}}
 
-This is the README for {{name}}.  It was created using
-[badger-scaffold-js](https://github.com/abw/badger-scaffold-js).
+This is the README for the {{name}} website.  It was created using
+[scaffold-js](https://github.com/abw/scaffold-js).
 
 {% include "readme/maintainers.md" %}
 
