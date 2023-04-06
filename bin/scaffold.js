@@ -37,9 +37,9 @@ ${options}:
   -y        / --yes             Accept all defaults
   -p        / --progress        Show progress
   -v        / --verbose         Verbose mode
-  -h        / --help            This help
   -D        / --debug           Debugging mode
   -V        / --version         Print version number
+  -h        / --help            This help
 
 ${examples}
   scaffold.js
