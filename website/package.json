@@ -1,6 +1,6 @@
 {
   "name": "@abw/scaffold-website",
-  "version": "0.0.1",
+  "version": "1.0.5",
   "description": "Website for @abw/scaffold",
   "type": "module",
   "author": "Andy Wardley",
@@ -10,8 +10,8 @@
   ],
   "scripts": {
       "dev": "vite --config vite.docs.js",
-      "build": "vite build --outDir docs --config vite.docs.js",
-      "preview": "vite preview --outDir docs --config vite.docs.js"
+      "build": "vite build --outDir ../docs --emptyOutDir --config vite.docs.js",
+      "preview": "vite preview --outDir ../docs --config vite.docs.js"
   },
   "dependencies": {
     "react": "^18.2.0",

@@ -159,6 +159,64 @@ const CustomScaffolding = () =>
       using the <code>-c</code> or <code>--config</code> option when you run
       the script.  These will take precedence over both of the above.
     </p>
+    <p>
+      Here&apos;s an extract from the{' '}
+      <a href="https://github.com/abw/scaffold-js/blob/master/scaffold/src/react-lib/config/vars.json">config/vars.json</a> for the{' '}
+      <code>react-lib</code> template.  Note how it defines things like{' '}
+      <code>dependencies</code>, <code>devDependencies</code> and{' '}
+      <code>scripts</code> which are
+      then added into the <code>package.json</code> by the{' '}
+      <a href="https://github.com/abw/scaffold-js/blob/master/scaffold/lib/common/package.json">lib/common/package.json</a>{' '}
+      template in the scaffold directory.
+    </p>
+    <CodeBlock language="json">
+      {`{
+  "type": "React library",
+  "dependencies": {
+    "react":     "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@abw/badger-timestamp": "^1.0.4",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.37.0",
+    "eslint-plugin-react": "^7.32.2",
+    "jsdom": "^21.1.1",
+    "react-router-dom": "^6.10.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "sass": "^1.60.0",
+    "vite": "^4.2.0",
+    "vitest": "^0.29.8"
+  },
+  "scripts": {
+    "dev": {
+      "command": "vite",
+      "about": "To run the development server."
+    },
+    "test": {
+      "command": "vitest",
+      "about": "To run the tests."
+    },
+    "build": {
+      "command": "vite build",
+      "about": "To build for production."
+    },
+    "build:docs": {
+      "command": "vite build --outDir docs --config vite.docs.js",
+      "about": "To build the documentation."
+    },
+    "preview": {
+      "command": "vite preview --outDir docs --config vite.docs.js",
+      "about": "To preview the documentation."
+    }
+  },
+}
+`}
+    </CodeBlock>
 
     <h2 id="files">Custom Files</h2>
     <p>

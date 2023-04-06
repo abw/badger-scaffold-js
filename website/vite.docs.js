@@ -4,7 +4,7 @@ import define from  './vite.defs.js'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/docs/',
+  base: '/scaffold-js/',
   define
 })
 
