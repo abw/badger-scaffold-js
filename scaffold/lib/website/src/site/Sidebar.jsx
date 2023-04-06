@@ -8,7 +8,9 @@ const Sidebar = () =>
       <h4>{{name}}</h4>
       <ul className="menu">
         <li><Link to="/" end text="Home"/></li>
-        <li><Link to="getting-started" text="Getting Started"/></li>
+{%- for page in websitePages %}
+        <li><Link to="{{page.url}}" end text="{{page.text}}"/></li>
+{%- endfor %}
       </ul>
     </div>
     <footer>

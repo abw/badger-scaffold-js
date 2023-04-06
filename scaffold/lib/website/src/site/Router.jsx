@@ -1,8 +1,10 @@
 import React from 'react'
 import Layout from './Layout.jsx'
 import Home from '../pages/Home.jsx'
-import GettingStarted from '../pages/GettingStarted.jsx'
 import { createBrowserRouter } from 'react-router-dom'
+{%- for page in websitePages %}
+import {{page.component}} from '../pages/{{page.component}}.jsx'
+{%- endfor %}
 
 export const Router = createBrowserRouter(
   [
@@ -10,8 +12,10 @@ export const Router = createBrowserRouter(
       path:     '/',
       element:  <Layout/>,
       children: [
-        { path: '/',               element: <Home/> },
-        { path: 'getting-started', element: <GettingStarted/> },
+        { path: '/', element: <Home/> },
+{%- for page in websitePages %}
+        { path: '{{page.url}}', element: <{{page.component}}/> }{{',' if not loop.last }}
+{%- endfor %}
       ]
     },
   ],

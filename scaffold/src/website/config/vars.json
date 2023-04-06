@@ -1,24 +1,19 @@
 {
-  "type": "React library",
+  "type": "web site",
   "dependencies": {
     "react":     "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@abw/badger-timestamp": "^1.0.4",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.37.0",
     "eslint-plugin-react": "^7.32.2",
-    "jsdom": "^21.1.1",
     "react-router-dom": "^6.10.0",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.60.0",
-    "vite": "^4.2.0",
-    "vitest": "^0.29.8"
+    "vite": "^4.2.0"
   },
   "entry": "lib/index.jsx",
   "external": {
@@ -28,18 +23,10 @@
   },
   "scripts": {
     "dev": {
-      "command": "vite",
+      "command": "vite --config vite.docs.js",
       "about": "To run the development server."
     },
-    "test": {
-      "command": "vitest",
-      "about": "To run the tests."
-    },
     "build": {
-      "command": "vite build",
-      "about": "To build for production."
-    },
-    "build:docs": {
       "command": "vite build --outDir docs --config vite.docs.js",
       "about": "To build the documentation."
     },
@@ -47,13 +34,5 @@
       "command": "vite preview --outDir docs --config vite.docs.js",
       "about": "To preview the documentation."
     }
-  },
-  "websitePages": [
-    {
-      "url":       "getting-started",
-      "text":      "Getting Started",
-      "component": "GettingStarted",
-      "description": "adding the module to your project."
-    }
-  ]
+  }
 }

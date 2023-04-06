@@ -4,10 +4,8 @@
   "common/package.json":  "package.json",
   "common/gitignore":     ".gitignore",
   "vite/vite.defs.js":    "vite.defs.js",
-  "vite/vite.config.js":  "vite.config.js",
   "vite/vite.docs.js":    "vite.docs.js",
   "public/badger.svg":    "public/badger.svg",
   "styles":               "styles",
-  "website/src":          "src",
-  "website/index.html":   "index.html"
+  "website":              "."
 }

@@ -15,22 +15,25 @@ const Home = () =>
       <img src={imgUrl('badger.svg')}/>
       <div className="blurb">
         <p className="intro">
-          <code className="code">{{name}}</code> is a React library...
+          <code className="code">{{name}}</code> is a {{type}}...
         </p>
         <p>
           This site was scaffolded by{' '}
-          <a href="https://github.com/abw/badger-scaffold-js">badger-scaffold-js</a>.
+          <a href="https://github.com/abw/scaffold-js">scaffold-js</a>.
         </p>
       </div>
     </div>
+{%- if websitePages %}
     <div>
       <ul className="large menu">
+{%-   for page in websitePages %}
         <li>
-          <Link to="getting-started" text="Getting Started"/> - adding the module
-          to your project.
+          <Link to="{{page.url}}" text="{{page.text}}"/> - {{page.description}}
         </li>
+{%-   endfor %}
       </ul>
     </div>
+{%- endif %}
     <div className="badger">
       <img src={imgUrl('badger.svg')} alt="badger"/>
       <div className="caption">
