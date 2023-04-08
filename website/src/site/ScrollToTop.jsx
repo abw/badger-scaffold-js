@@ -6,7 +6,7 @@ export default function ScrollToTop() {
 
   useEffect(
     () => {
-      document.documentElement.scrollTo({
+      document.getElementById('content').scrollTo({
         top: 0,
         left: 0,
         behavior: 'smooth',

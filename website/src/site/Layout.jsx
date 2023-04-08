@@ -9,7 +9,7 @@ const Layout = () =>
     <aside>
       <Sidebar/>
     </aside>
-    <main>
+    <main id="content">
       <Outlet/>
     </main>
   </div>
