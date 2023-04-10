@@ -46,6 +46,10 @@
     "preview": {
       "command": "vite preview --outDir docs --config vite.docs.js",
       "about": "To preview the documentation."
+    },
+    "lint": {
+      "command": "eslint 'src/**/*.{js,jsx}' 'lib/**/*.{js,jsx}'",
+      "about": "Check source code for formatting errors."
     }
   },
   "websitePages": [
